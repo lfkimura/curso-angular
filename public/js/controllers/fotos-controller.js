@@ -6,13 +6,23 @@ angular.module('alurapic')
     var promise = $http.get('/v1/fotos');
     promise.then(function(retorno) {
         $scope.fotos = retorno.data;
-        $scope.foto = {};
-        $scope.mensagem = 'Foto cadastrada com sucesso';
     })
     .catch(function(erro) {
         console.log(erro);
         $scope.mensagem = 'Não foi possível cadastrar a foto';
     }); 
+
+    $scope.remover = function(foto) {
+
+        $http.delete('/v1/fotos/' + foto._id)
+        .success(function() {
+            console.log('Foto ' + foto.titulo + ' removida com sucesso!');
+
+        })
+        .error(function(erro) {
+            console.log('Não foi possível apagar a foto ' + foto.titulo);
+        });
+    }
 
 
 
