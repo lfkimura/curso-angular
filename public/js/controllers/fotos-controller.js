@@ -16,11 +16,16 @@ angular.module('alurapic')
 
         $http.delete('/v1/fotos/' + foto._id)
         .success(function() {
-            console.log('Foto ' + foto.titulo + ' removida com sucesso!');
+             $scope.mensagem = 'Foto ' + foto.titulo + ' removida com sucesso!';
+             
+            var indiceDaFoto = $scope.fotos.indexOf(foto);
+            $scope.fotos.splice(indiceDaFoto, 1);
+
 
         })
         .error(function(erro) {
-            console.log('Não foi possível apagar a foto ' + foto.titulo);
+             $scope.mensagem = 'Não foi possível apagar a foto ' + foto.titulo;
+       
         });
     }
 
