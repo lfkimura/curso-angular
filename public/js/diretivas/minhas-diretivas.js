@@ -1,6 +1,5 @@
 angular.module("minhasDiretivas",[])
 .directive("meuPainel", function(){
-	console.log("diretivas");
 	var ddo = {};
 	ddo.transclude=true;
 	ddo.restrict = 'AE';
@@ -8,6 +7,18 @@ angular.module("minhasDiretivas",[])
 		titulo: "@"
 	}
 	ddo.templateUrl = 'js/diretivas/meu-painel.html';
+	return ddo;
+
+})
+.directive("minhaFoto", function(){
+	var ddo = {};
+	ddo.transclude=false;
+	ddo.restrict = 'E';
+	ddo.scope = {
+		titulo: "@",
+		url: "@"
+	}
+	ddo.templateUrl = 'js/diretivas/minha-foto.html';
 	return ddo;
 
 });
