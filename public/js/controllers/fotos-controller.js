@@ -1,6 +1,5 @@
 angular.module('alurapic')
-.controller('FotosController',function($scope, $resource){
-  var recursoFoto = $resource('/v1/fotos/:fotoId');
+.controller('FotosController',function($scope, recursoFoto){
   $scope.fotos = [];
   $scope.mensagem = '';
 
