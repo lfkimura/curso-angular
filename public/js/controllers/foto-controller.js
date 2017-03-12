@@ -3,7 +3,7 @@ angular.module('alurapic')
 	//$scope.foto = {}; 
 
 	if($routeParams.fotoId) {
-            recursoFoto.query({fotoId: $routeParams.fotoId}, function(foto) {
+            recursoFoto.get({ fotoId: $routeParams.fotoId }, {}, function(foto) {
                 $scope.foto = foto;
             },function(erro) {
                 console.log(erro);
