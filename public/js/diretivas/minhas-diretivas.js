@@ -36,12 +36,8 @@ angular.module("minhasDiretivas",[])
  .directive('botaoFocado',function(){
  	var ddo = {};
  	ddo.restrict = 'A';
- 	ddo.scope = {
- 		focado: '='
- 	}
  	ddo.link = function(scope,element){
- 		scope.$watch('focado', function(){
- 			if(scope.focado == true)
+ 		scope.$on('fotoCadastrada', function(){
  				element[0].focus();
  		})
 
