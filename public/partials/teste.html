@@ -1,0 +1,28 @@
+<!-- public/partials/foto.html -->
+
+<div class="page-header text-center">
+    <h1>{{name}}</h1>
+</div>
+
+<form name="formulario" class="row" ng-submit="submeter()" novalidate>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>name</label>
+            <input ng-required="true" name="titulo" class="form-control" ng-model="name" ng-maxlength="20">    
+
+            <span ng-show = "formulario.$dirty && formulario.$submitted &&  formulario.titulo.$error.required" 
+                class="form-control alert-danger">
+                Título obrigatório
+            </span>    
+            <span ng-show="formulario.$dirty && formulario.$submitted && formulario.titulo.$error.maxlength" class="form-control alert-danger">
+                No máximo 20 caracteres!
+            </span>   
+        </div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+            Salvar
+        </button>
+         <a href="/" class="btn btn-primary">Voltar</a>
+        <hr>
+    </div>
+</form>

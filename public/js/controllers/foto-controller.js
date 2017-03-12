@@ -16,6 +16,7 @@ angular.module('alurapic')
             cadastroFotos.cadastrar($scope.foto).then(function(sucesso){
                 $scope.mensagem = sucesso.mensagem;
                 if (sucesso.inclusao) $scope.foto = {};
+                $scope.focado = true;
             }, function(erro){
 
                     $scope.mensagem = erro.mensagem;
